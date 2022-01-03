@@ -1,0 +1,114 @@
+* {
+  margin: 0%;
+  padding: 0%;
+}
+p{color:black}
+.header img {
+  float: left;
+  width:120px;
+  height: 120px;
+  padding: 10px;
+}
+
+body {
+  background: url(./asd.jpg);
+  background-size: cover;
+  color: white;
+  
+}
+/* set form background colour*/
+form {
+  margin-top: 20vh;
+  background: white;
+}
+/* set padding and size of the form */
+.form-container {
+  border-radius: 20px;  
+  padding: 20px;
+}
+
+/* signup */
+
+.signupFrm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.dropdown-menu {
+  background: black;
+  color: white;
+}
+
+
+#passwordInput{
+        
+  display: flex;
+  position: relative;
+}
+#passwordInput input[type="password"], #passwordInput input[type="text"]{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid lightgrey;
+  font-size: 15px;
+  
+}
+
+#passwordInput #showHide{
+font-size: 12px;
+  font-weight: 600;
+ position: absolute;
+ color:red;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+}
+#passwordStrength{
+  width: 30%;
+  height: 5px;
+  margin: 5px 0;
+  display: none;
+}
+#passwordStrength span{
+position: relative;
+height: 100%;
+width: 100%;
+background: lightgrey;
+border-radius: 5px;
+}
+#passwordStrength span:nth-child(2){
+margin: 0 3px;
+}
+#passwordStrength span.active:before{
+position: absolute;
+content: '';
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+border-radius: 5px;
+}
+#passwordStrength span#poor:before{
+background-color: #ff4757;
+}
+#passwordStrength span#weak:before{
+background-color: orange;
+}
+#passwordStrength span#strong:before{
+background-color: #23ad5c;
+}
+#passwordInfo{
+font-size: 15px;
+}
+#passwordInfo #poor{
+color: red;
+}
+#passwordInfo #weak{
+color: orange;
+}
+#passwordInfo #strong{
+color: green;
+}

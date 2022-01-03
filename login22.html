@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  
+  <link href="./Assets/css/stylesheet.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <section class="container-fluid">
+    <section class="row justify-content-center">
+        <section class="col-12 col-sm-6 col-md-4">
+            <form class="form-container" name="login">
+                <div class="form-group">
+                    <h4 class="text-center font-weight-bold" style="color: black;"> Login </h4>
+                    <p class="text-center">Please enter your details to login</p>
+                    <div class="form-group mb-4">
+                        <label for="Email ID">Enter your email id</label>
+                        <input type="text" id="semail" class="form-control"name="mail" oninput="mailvalid();" placeholder="Your email id"/> <span id="mailval"></span>
+                    </div>
+                    <label for="pass">Enter Password</label>
+                        <div class="form-group mb-4" id="passwordInput"  >
+                          <input type="password" name="pwd1" id="password1" placeholder="Enter passsword" oninput="password();">
+                          <span id="showHide">SHOW</span>
+                          
+                         
+                      </div>
+                      <div id="p1val"></div>
+                </div>
+                <div class="text-left">
+                    <button type="submit"  class="btn btn-big btn-dark" onclick="loginform();">Login</button>
+                </div>
+                <br>
+                <div class="text-left">
+                    <a href="./index.html" class="mb-85" style="color: black;">Sign Up</a>
+                </div>
+            </form> 
+        </section>
+    </section>
+    </section>
+    
+<script>
+
+    
+var mailid=document.login.mail;
+var validmail=document.getElementById("mailval");
+
+function mailvalid(){ 
+ var boxmail=document.getElementById("semail")  
+ var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    if(mailid.value.trim().match(mailformat))
+    {boxmail.style.border= "3px solid green"
+    validmail.style.color="green";
+    validmail.innerHTML="Valid Email Id";
+    return true;
+    }
+
+    else
+    {boxmail.style.border= "3px solid red"
+    validmail.style.color="red";
+    validmail.innerHTML="Enter a Valid Email Id";
+    return false;
+    }
+
+}
+
+let passwordInput = document.querySelector('#passwordInput input[type="password"]');
+    let showHide = document.querySelector('#passwordInput #showHide');
+        
+        showHide.onclick = function(){
+             showHidePassword()
+       }
+       
+       function showHidePassword(){
+         if(passwordInput.type == "password"){
+           passwordInput.type = "text";
+           showHide.textContent = "HIDE";
+           showHide.style.color = "green";
+         }else{
+           passwordInput.type = "password";
+           showHide.textContent = "SHOW";
+           showHide.style.color = "red";
+         }
+       }
+
+      function password(){
+        var pass1=document.login.pwd1;
+      var validp1=document.getElementById("p1val");
+      boxpass=document.getElementById("password1")
+      if(pass1.value.trim().length>=8){
+     boxpass.style.border= "3px solid green"
+     validp1.style.color="green";
+      validp1.innerHTML="Passwords conditions matching";
+    return true;
+
+      }
+
+     else{
+    boxpass.style.border= "3px solid red"
+    validp1.style.color="red";
+    validp1.innerHTML="Enter your password";
+    return false;
+
+     }
+
+      }
+
+
+ function loginform(){
+     if(mailvalid()&&password()){
+        alert("Logged in Successfully!");
+    return true;
+     }
+
+     else{alert("Error");
+    return false
+         
+     }
+ }
+
+</script>
+
+
+</body>
+</html>
+
